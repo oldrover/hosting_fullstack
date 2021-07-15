@@ -12,9 +12,9 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>("https://fakestoreapi.com/products");
+    return this.http.get<Product[]>("http://localhost:3000/products");
   }
   getProductById(id: number): Observable<Product> {
-    return this.http.get<Product>(`https://fakestoreapi.com/products/` + id);
+    return this.http.get<Product>(`http://localhost:3000/products/` + id);
   }
 }
