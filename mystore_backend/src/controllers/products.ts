@@ -25,14 +25,17 @@ const getProductById = async (req: Request, res: Response) => {
 const saveProduct = async (req: Request, res: Response) => {    
     try {
 
-        if(!req.body.name || !req.body.price || !req.body.category) {
+        if(!req.body.title || !req.body.price || !req.body.category) {
                 throw new Error('Body is missing values!');
         } 
 
         const product: Product = {
-            name: req.body.name,
+            title: req.body.title,
             price: req.body.price,
-            category: req.body.category
+            image: req.body.image,
+            category: req.body.category,
+            description: req.body.description
+
         }
         const newProduct = await store.saveProduct(product);
         res.json(newProduct);
