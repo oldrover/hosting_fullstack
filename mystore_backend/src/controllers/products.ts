@@ -1,5 +1,4 @@
 import express, { Request, Response } from 'express';
-import verifyAuthToken from '../security/JWTAuthentication';
 import { Product, ProductStore } from '../models/product';
 
 export const store = new ProductStore();
@@ -65,9 +64,7 @@ const getProductsByCategory = async (req: Request, res: Response) => {
 
 const product_routes = (app: express.Application) => {
     app.get('/products', getAllProducts);
-    app.get('/products/:id', getProductById);
-    app.post('/products', verifyAuthToken, saveProduct);
-    app.delete('/products/:id', verifyAuthToken, deleteProduct);
+    app.get('/products/:id', getProductById);    
     app.get('/products/categories/:category', getProductsByCategory);
 }
 

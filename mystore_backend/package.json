@@ -9,7 +9,10 @@
     "migrate": "db-migrate --env test up && db-migrate up",
     "migratedown": "db-migrate --env test --count 4 down && db-migrate --count 4 down",
     "test": "db-migrate --env test up && jasmine-ts && db-migrate --env test --count 4 down",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "clean": "rm -rf dist/ || true",
+    "build": "npm run clean && tsc && cp package.json dist/package.json && cd dist && zip -r Archive.zip . && cd ..",
+    "deploy": "npm run build && chmod +x ./bin/deploy.sh && ./bin/deploy.sh"
   },
   "author": "Udacity",
   "license": "ISC",
