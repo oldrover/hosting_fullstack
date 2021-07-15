@@ -1,0 +1,48 @@
+img {
+    width: 50px;
+    border-radius: 5px;
+}
+
+.cart {
+    margin-top: 70px;
+    margin-left: 20px;
+    margin-right: 20px;
+    min-height: 500px;  
+    width: 1200px;  
+    padding: 50px;    
+    align-items: center;
+    justify-content: center;        
+    background-color:rgba(255, 255, 255, 0.25);
+    border-radius: 10px;    
+}
+
+.items {          
+    padding: 10px;
+    margin: 5px;
+    background-color:rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    min-width: 400px;
+    
+}
+
+.total {
+    text-align: right;
+    padding-right: 140px;
+}
+
+.empty {        
+    align-items: center;
+    text-align: center;
+}
+.modal-body { 
+    background: #A5AE9E;   
+    display: flex;
+    align-items: center;
+    justify-content: center;       
+    flex-direction: row;
+    flex-wrap: wrap;          
+}
+
+
+
+

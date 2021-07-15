@@ -1,0 +1,12 @@
+.products {
+    margin-top: 70px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 10px;
+    display: flex; 
+    align-items: center;
+    justify-content: center;       
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: 200px;
+}

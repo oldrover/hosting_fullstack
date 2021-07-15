@@ -1,0 +1,73 @@
+<ng-template #content let-modal>    
+    <div class="modal-body">
+        <strong>product removed from cart</strong>
+    </div>    
+  </ng-template>
+
+<div class="cart shadow">
+<div class="row container" *ngIf="!empty">
+    <div class="col container items">
+        <div class="row" *ngFor="let product of products">
+            <div class="col-md-2 ml-auto"><img src="{{ product.image}}"></div>
+            <div class="col-md-2 ml-auto">{{product.title}}</div>            
+            <div class="col-md-2 ml-auto">                               
+                <select class="form-select" [(ngModel)]="product.amount" (ngModelChange)="onChange($event, product.id)">
+                    <option *ngFor="let num of num">
+                        {{num}}
+                    </option>                    
+                </select>              
+                
+            </div>
+            <div class="col-md-2 ml-auto">{{ product.price | currency }}</div>
+            <div class="col-md-2 ml-auto">
+                <fa-icon [icon]="faRemove" (click)="removeFromCart(product, content)" placement="top" ngbTooltip="Remove from cart"></fa-icon>
+            </div>
+            <hr>
+        </div>
+        <hr>
+        <div class="col total" id="total">Total: {{ total | currency }}</div>
+    </div>
+    <div class="col">
+        <form #form="ngForm" (ngSubmit)="submitOrder()">
+            <label for="inputName">Name</label>
+            <div class="input-group mb-2">                
+                <input class="form-control" required minlength="3" #nameCheck="ngModel" name="inputName" placeholder="(minimum 3 characters)" [(ngModel)]="name">
+                <div class="input-group-append">
+                    <span class="input-group-text" id="addon-name">
+                        <fa-icon *ngIf="!nameCheck.errors" [icon]="faOk" style="color: green"></fa-icon>
+                        <fa-icon *ngIf="nameCheck.errors" [icon]="faWrong" style="color: red"></fa-icon>
+                    </span>
+                  </div>
+            </div>
+            <label for="inputAddress">Address</label>
+            <div class="input-group mb-2">                
+                <input class="form-control" required minlength="6" #addressCheck="ngModel" name="inputAddress" placeholder="(minimum 6 characters)" [(ngModel)]="address">
+                <div class="input-group-append">
+                    <span class="input-group-text" id="addon-address">
+                        <fa-icon *ngIf="!addressCheck.errors" [icon]="faOk" style="color: green"></fa-icon>
+                        <fa-icon *ngIf="addressCheck.errors" [icon]="faWrong" style="color: red"></fa-icon>
+                    </span>
+                  </div>
+            </div>
+            <label for="inputCard">Credit Card Number</label>
+            <div class="input-group mb-2">                
+                <input class="form-control" required pattern="[0-9]{16}" #creditCheck="ngModel" name="inputCard" placeholder="(16-digit number)" [(ngModel)]="creditcard">
+                <div class="input-group-append">
+                    <span class="input-group-text" id="addon-credit">
+                        <fa-icon *ngIf="!creditCheck.errors" [icon]="faOk" style="color: green"></fa-icon>
+                        <fa-icon *ngIf="creditCheck.errors" [icon]="faWrong" style="color: red"></fa-icon>
+                    </span>
+                  </div>
+            </div>
+            <div class="input-group mb-2">
+                <input type="submit" [disabled]="form.invalid" value="Submit" class="btn btn-primary">                
+            </div>
+        </form>        
+
+    </div>
+</div>
+<div class="empty" *ngIf="empty">
+    <strong>Shopping cart is empty!</strong><br>
+    <a routerLink="/"><button class="btn btn-secondary"><- back to products</button></a>
+</div>
+</div>

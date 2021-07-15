@@ -1,0 +1,19 @@
+.navbar {
+    background: #7E846B;    
+}
+
+#logo {
+    width: 120px;
+    border-radius: 50%;
+}
+
+.category {
+    color: #2F2504;
+    font-weight: bold;
+    text-decoration: none;
+
+}
+#cart {
+    color: #2F2504;
+    width: 50px;
+}
