@@ -12,9 +12,10 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>("http://localhost:3000/products");
+    //return this.http.get<Product[]>("http://localhost:3000/products");
+    return this.http.get<Product[]>("http://nochntest-env.eba-d4mt3wur.eu-central-1.elasticbeanstalk.com:3000/products");
   }
   getProductById(id: number): Observable<Product> {
-    return this.http.get<Product>(`http://localhost:3000/products/` + id);
+    return this.http.get<Product>(`http://nochntest-env.eba-d4mt3wur.eu-central-1.elasticbeanstalk.com:3000/products/` + id);
   }
 }

@@ -1,0 +1,13 @@
+{
+    "name": "mystore",
+    "description": "Udacity JS Fullstack ND final project",
+    "author": "Markus Fleischmann",
+    "scripts": {
+        "frontend:install":"cd mystore_frontend && npm install",
+        "backend:install":"cd mystore_backend && npm install",
+        "frontend:build":"cd mystore_frontend && npm run build",
+        "backend:build":"cd mystore_backend && npm run build",
+        "frontend:deploy":"cd mystore_frontend && npm run deploy",
+        "backend:deploy":"cd mystore_backend && npm run deploy"
+    }
+}
