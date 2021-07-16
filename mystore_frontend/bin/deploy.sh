@@ -1,1 +1,1 @@
-aws s3 cp --recursive --acl public-read ./dist/mystore s3://markusstore/
+aws s3 cp --recursive --acl public-read ./dist/my-store s3://markusstore/
