@@ -7,6 +7,8 @@
         "backend:install":"cd mystore_backend && npm install",
         "frontend:build":"cd mystore_frontend && npm run build",
         "backend:build":"cd mystore_backend && npm run build",
+        "frontend:test":"cd mystore_frontend && npm run test",
+        "backend:test":"cd mystore_backend && npm run test",
         "frontend:deploy":"cd mystore_frontend && npm run deploy",
         "backend:deploy":"cd mystore_backend && npm run deploy"
     }
